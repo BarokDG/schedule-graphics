@@ -1,379 +1,459 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    overflow: hidden;
-    font-family: 'Dela Gothic One', cursive;
+  --play-state: paused;
+
+  overflow: hidden;
+  font-family: "Dela Gothic One", cursive;
+}
+
+body * {
+  animation-play-state: var(--play-state) !important;
+}
+
+.play-action,
+.play-again {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: hsl(256, 88%, 88%);
+  z-index: 10001;
+
+  display: grid;
+  place-items: center;
+}
+
+.play-again {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.play-action.transition-out {
+  animation: fade-out 1000ms forwards linear;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.play-again.transition-in {
+  --play-state: running;
+
+  animation: fade-in 1000ms forwards linear;
+  visibility: visible;
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
+.cta-header {
+  color: hsl(256, 78%, 52%);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta {
+  padding: 0.5rem 4rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  background: hsl(256, 78%, 42%);
+  cursor: pointer;
+
+  color: #f1fff3;
+}
+
+.cta:hover {
+  outline: hsl(264, 68%, 49%) 1px solid;
+  outline-offset: 2px;
 }
 
 body,
 #main,
 .intro {
-    height: 100vh;
-    margin: 0 auto;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 audio {
-    width: 10vw;
-    position: absolute;
+  width: 10vw;
+  position: absolute;
 }
 
 #main,
 .intro {
-    width: 80vw;
+  width: 80vw;
 }
 
 #main {
-    position: relative;
+  position: relative;
 
-    display: grid;
-    grid-template-rows: 100px auto;
-    justify-items: center;
+  display: grid;
+  grid-template-rows: 100px auto;
+  justify-items: center;
 }
 
 .intro {
-    position: absolute;
+  position: absolute;
 
-    left: 10vw;
+  left: 10vw;
 
-    background-color: #411f73;
+  background-color: #411f73;
 
-    z-index: 10;
+  z-index: 10;
 
-    opacity: 1;
+  opacity: 1;
 
-    animation: disappear 5s ease-out;
-    animation-fill-mode: forwards;
+  animation: disappear 5s ease-out;
+  animation-fill-mode: forwards;
 }
 
 #outro {
-    opacity: 0;
+  opacity: 0;
 
-    animation: reappear 5s ease-in-out;
-    
-    /* Change this */
-    /* animation-delay: 33s; */
-    animation-delay: 25s;
-    animation-fill-mode: forwards;
+  animation: reappear 5s ease-in-out;
+
+  /* Change this */
+  /* animation-delay: 33s; */
+  animation-delay: 25s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes disappear {
-    0%,
-    90% {
-        opacity: 1;
-    }
+  0%,
+  90% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes reappear {
+  0%,
+  90% {
+    opacity: 0;
+  }
 
-    0%,
-    90% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .intro p {
-    margin: 0;
-    position: absolute;
+  margin: 0;
+  position: absolute;
 
-    top: 50%;
-    left: 10%;
+  top: 50%;
+  left: 10%;
 
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    font-size: 3.5rem;
-    color: white;
-    letter-spacing: 5px;
+  font-size: 3.5rem;
+  color: white;
+  letter-spacing: 5px;
 
-    text-shadow: 10px 4px purple;
+  text-shadow: 10px 4px purple;
 }
 
 video {
-    width: 100%;
-    position: absolute;
-    object-fit: fill;
-    transform: scaleY(1.2);
-    z-index: -2;
+  width: 100%;
+  position: absolute;
+  object-fit: fill;
+  transform: scaleY(1.2);
+  z-index: -2;
 }
 
 :root {
-    --delay: 100ms;
-    --start_animation: 5000ms;
+  --delay: 100ms;
+  --start_animation: 5000ms;
 }
 
 .table {
-    width: 85%;
+  width: 85%;
 
-    height: fit-content;
-    position: relative;
+  height: fit-content;
+  position: relative;
 
-    animation: runaway 1s ease-in-out;
-    animation-delay: 12s;
-    animation-fill-mode: forwards;
+  animation: runaway 1s ease-in-out;
+  animation-delay: 12s;
+  animation-fill-mode: forwards;
 
-    display: grid;
-    grid-template-rows: repeat(auto-fit, auto);
-    /* display: none; */
+  display: grid;
+  grid-template-rows: repeat(auto-fit, auto);
+  /* display: none; */
 }
 
 @keyframes runaway {
-    0% {
-        left: 0;
-    }
+  0% {
+    left: 0;
+  }
 
-    100% {
-        left: 100%;
-    }
+  100% {
+    left: 100%;
+  }
 }
 
 .table::after {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background: linear-gradient(to right, #3c105360, #ad538960);
-    position: absolute;
-    content: "";
-    top: 0;
-    z-index: -1;
-    filter: blur(10);
-    border-bottom-right-radius: 16px;
+  background: linear-gradient(to right, #3c105360, #ad538960);
+  position: absolute;
+  content: "";
+  top: 0;
+  z-index: -1;
+  filter: blur(10);
+  border-bottom-right-radius: 16px;
 }
 
 .header,
 .teams {
-    display: grid;
-    grid-template-columns: 8fr 4fr repeat(8, 1fr);
+  display: grid;
+  grid-template-columns: 8fr 4fr repeat(8, 1fr);
 
-    width: 100%;
+  width: 100%;
 }
 
 .header {
-    height: 6vh;
-    border-radius: 16px 16px 0 0;
-    background-color: white;
+  height: 6vh;
+  border-radius: 16px 16px 0 0;
+  background-color: white;
 
-    align-content: center;
-    text-transform: capitalize;
+  align-content: center;
+  text-transform: capitalize;
 
-    font-size: 1.2rem;
-    color: #411f73;
+  font-size: 1.2rem;
+  color: #411f73;
 }
 
 .teams {
-    height: 6vh;
+  height: 6vh;
 
-    color: white;
+  color: white;
 
-    margin-top: 1px;
-    position: relative;
+  margin-top: 1px;
+  position: relative;
 
-    align-content: center;
+  align-content: center;
 }
 
 .teams p {
-    margin: 0;
-    height: 100%;
-    font-size: 1.4rem;
-    font-family: sans-serif;
+  margin: 0;
+  height: 100%;
+  font-size: 1.4rem;
+  font-family: sans-serif;
 }
 
 :is(.header, .teams) p {
-    justify-self: center;
+  justify-self: center;
 }
 
 .teams::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #a3ddcb;
-    animation: ribbonLeft 1s ease-in-out;
-    animation-fill-mode: forwards;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #a3ddcb;
+  animation: ribbonLeft 1s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .teams:nth-child(2)::after {
-    animation-delay: var(--start_animation);
-    background-color: gold;
+  animation-delay: var(--start_animation);
+  background-color: gold;
 }
 
 #playoffs .teams::after {
-    background-color: #03506f;
+  background-color: #03506f;
 }
 
 #playoffs .teams:nth-child(1)::after {
-    animation-delay: calc(var(--delay) + var(--start_animation));
+  animation-delay: calc(var(--delay) + var(--start_animation));
 }
 
 #playoffs .teams:nth-child(2)::after {
-    animation-delay: calc(var(--delay) * 2 + var(--start_animation));
+  animation-delay: calc(var(--delay) * 2 + var(--start_animation));
 }
 
 #playoffs .teams:nth-child(3)::after {
-    animation-delay: calc(var(--delay) * 3 + var(--start_animation));
+  animation-delay: calc(var(--delay) * 3 + var(--start_animation));
 }
 
 #playoffs .teams:nth-child(4)::after {
-    animation-delay: calc(var(--delay) * 4 + var(--start_animation));
+  animation-delay: calc(var(--delay) * 4 + var(--start_animation));
 }
 
 .teams:nth-child(4)::after {
-    animation-delay: calc(var(--delay) * 5 + var(--start_animation));
+  animation-delay: calc(var(--delay) * 5 + var(--start_animation));
 }
 
 .teams:nth-child(5)::after {
-    animation-delay: calc(var(--delay) * 6 + var(--start_animation));
+  animation-delay: calc(var(--delay) * 6 + var(--start_animation));
 }
 
 .teams:nth-child(6)::after {
-    animation-delay: calc(var(--delay) * 7 + var(--start_animation));
+  animation-delay: calc(var(--delay) * 7 + var(--start_animation));
 }
 
 .teams:nth-child(7)::after {
-    animation-delay: calc(var(--delay) * 8 + var(--start_animation));
-    background-color: #ffe3de;
+  animation-delay: calc(var(--delay) * 8 + var(--start_animation));
+  background-color: #ffe3de;
 }
 
 .teams:nth-child(8)::after {
-    animation-delay: calc(var(--delay) * 9 + var(--start_animation));
-    background-color: #ffe3de;
+  animation-delay: calc(var(--delay) * 9 + var(--start_animation));
+  background-color: #ffe3de;
 }
 
 .team_name {
-    grid-column: 1/2;
+  grid-column: 1/2;
 
-    justify-self: left !important;
-    padding-left: 4rem;
+  justify-self: left !important;
+  padding-left: 4rem;
 }
 
 .team_name::before {
-    position: absolute;
-    color: white;
+  position: absolute;
+  color: white;
 
-    left: 2rem;
+  left: 2rem;
 }
 
-.table>.teams:nth-child(2) .team_name::before {
-    content: "1";
+.table > .teams:nth-child(2) .team_name::before {
+  content: "1";
 }
 
-#playoffs>.teams:nth-child(1) .team_name::before {
-    content: "2";
+#playoffs > .teams:nth-child(1) .team_name::before {
+  content: "2";
 }
 
-#playoffs>.teams:nth-child(2) .team_name::before {
-    content: "3";
+#playoffs > .teams:nth-child(2) .team_name::before {
+  content: "3";
 }
 
-#playoffs>.teams:nth-child(3) .team_name::before {
-    content: "4";
+#playoffs > .teams:nth-child(3) .team_name::before {
+  content: "4";
 }
 
-#playoffs>.teams:nth-child(4) .team_name::before {
-    content: "5";
+#playoffs > .teams:nth-child(4) .team_name::before {
+  content: "5";
 }
 
-.table>.teams:nth-child(4) .team_name::before {
-    content: "6";
+.table > .teams:nth-child(4) .team_name::before {
+  content: "6";
 }
 
-.table>.teams:nth-child(5) .team_name::before {
-    content: "7";
+.table > .teams:nth-child(5) .team_name::before {
+  content: "7";
 }
 
-.table>.teams:nth-child(6) .team_name::before {
-    content: "8";
+.table > .teams:nth-child(6) .team_name::before {
+  content: "8";
 }
 
-.table>.teams:nth-child(7) .team_name::before {
-    content: "9";
+.table > .teams:nth-child(7) .team_name::before {
+  content: "9";
 }
 
-.table>.teams:nth-child(8) .team_name::before {
-    content: "10";
+.table > .teams:nth-child(8) .team_name::before {
+  content: "10";
 }
 
 @keyframes ribbonLeft {
-    0% {
-        width: 100%;
-        border-radius: 0 20px 20px 0;
-    }
+  0% {
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+  }
 
-    100% {
-        width: .5%;
-        border-radius: 0;
-    }
+  100% {
+    width: 0.5%;
+    border-radius: 0;
+  }
 }
 
 .fa-check-circle {
-    color: lime;
+  color: lime;
 }
 
 .fa-times-circle {
-    color: rgb(245, 60, 97);
+  color: rgb(245, 60, 97);
 }
-
-
 
 /* Scrolling Text Animation */
 
 .horizontalTextAnimation {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .horizontalTextAnimation p {
-    font-size: 2rem;
-    color: white;
-    text-transform: uppercase;
+  font-size: 2rem;
+  color: white;
+  text-transform: uppercase;
 
-    font-family: sans-serif;
-    white-space: nowrap;
-    overflow: hidden;
+  font-family: sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
 
-    font-weight: bold;
+  font-weight: bold;
 
-    position: absolute;
+  position: absolute;
 }
 
 :root {
-    /* --flash-delay: 26s; */
-    --flash-delay: 21s;
-    --flash-count: 3;
+  /* --flash-delay: 26s; */
+  --flash-delay: 21s;
+  --flash-count: 3;
 }
 
 #forward p {
-    top: 0;
-    left: 100%;
-    animation: toLeft 10s infinite linear,
-        flash 1s var(--flash-count) cubic-bezier(.84,-.54,.31,1.19) var(--flash-delay);
+  top: 0;
+  left: 100%;
+  animation: toLeft 10s infinite linear,
+    flash 1s var(--flash-count) cubic-bezier(0.84, -0.54, 0.31, 1.19)
+      var(--flash-delay);
 }
 
 #reverse p {
-    bottom: 2.5rem;
-    right: 100%;
-    animation: toRight 10s infinite linear,
-        flash 1s var(--flash-count) cubic-bezier(.84,-.54,.31,1.19) var(--flash-delay);
+  bottom: 2.5rem;
+  right: 100%;
+  animation: toRight 10s infinite linear,
+    flash 1s var(--flash-count) cubic-bezier(0.84, -0.54, 0.31, 1.19)
+      var(--flash-delay);
 }
 
 #forward p.bottom {
-    animation: toLeft 10s infinite linear 5s,
-        flash 1s var(--flash-count) cubic-bezier(.84,-.54,.31,1.19) var(--flash-delay);
+  animation: toLeft 10s infinite linear 5s,
+    flash 1s var(--flash-count) cubic-bezier(0.84, -0.54, 0.31, 1.19)
+      var(--flash-delay);
 }
 
 #reverse p.bottom {
-    animation: toRight 10s infinite linear 5s,
-        flash 1s var(--flash-count) cubic-bezier(.84,-.54,.31,1.19) var(--flash-delay);
+  animation: toRight 10s infinite linear 5s,
+    flash 1s var(--flash-count) cubic-bezier(0.84, -0.54, 0.31, 1.19)
+      var(--flash-delay);
 }
 
 /* :is(#reverse, #forward) p.bottom {
@@ -381,230 +461,231 @@ video {
 } */
 
 span {
-    color: transparent;
-    -webkit-text-stroke: 1px white;
+  color: transparent;
+  -webkit-text-stroke: 1px white;
 }
 
 @keyframes toLeft {
-    0% {
-        left: 100%;
-    }
+  0% {
+    left: 100%;
+  }
 
-    100% {
-        left: -110%;
-    }
+  100% {
+    left: -110%;
+  }
 }
 
 @keyframes flash {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes toRight {
-    0% {
-        right: 100%;
-    }
+  0% {
+    right: 100%;
+  }
 
-    100% {
-        right: -110%;
-    }
+  100% {
+    right: -110%;
+  }
 }
-
-
 
 /* Fixtures section */
 #results,
 #fixtures {
-    position: absolute;
-    top: 5%;
+  position: absolute;
+  top: 5%;
 
-    width: 60vw;
-    color: white;
+  width: 60vw;
+  color: white;
 
-    font-size: 1.5rem;
-    opacity: 0;
+  font-size: 1.5rem;
+  opacity: 0;
 
-    animation: appear 3s forwards;
+  animation: appear 3s forwards;
 }
 
 #results {
-    animation-delay: 13s;
+  animation-delay: 13s;
 }
 
 /* Change this when one page of results */
 #fixtures {
-    /* animation-delay: 26s; */ 
-    animation-delay: 22500ms;
+  /* animation-delay: 26s; */
+  animation-delay: 22500ms;
 }
 
-
 @keyframes appear {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 .big_header {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .main-main {
-    display: grid;
-    grid-template-columns: auto;
+  display: grid;
+  grid-template-columns: auto;
 
-    grid-template-rows: repeat(auto-fit, auto);
+  grid-template-rows: repeat(auto-fit, auto);
 
-    justify-items: center;
+  justify-items: center;
 
-    grid-row-gap: 2.5rem;
+  grid-row-gap: 2.5rem;
 }
 
-.main-main>* {
-    position: relative;
+.main-main > * {
+  position: relative;
 }
 
-.main-main>p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem !important;
-    letter-spacing: 5px;
+.main-main > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem !important;
+  letter-spacing: 5px;
 
-    margin-top: -2rem;
+  margin-top: -2rem;
 }
 
 .main-main div {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 
-    align-items: center;
+  align-items: center;
 
-    background-color: white;
-    filter: blur(10);
+  background-color: white;
+  filter: blur(10);
 
-    color: black;
-    border-radius: 5px;
+  color: black;
+  border-radius: 5px;
 
-    width: 50vw;
-    height: 7vh;
+  width: 50vw;
+  height: 7vh;
 }
 
-.main-main>div::after {
-    content: "";
-    width: 100px;
-    height: 60px;
+.main-main > div::after {
+  content: "";
+  width: 100px;
+  height: 60px;
 
-    position: absolute;
-    top: 0;
+  position: absolute;
+  top: 0;
 
-    background: linear-gradient(to top, rgba(220, 20, 60, 0.7) 12%, rgba(220, 20, 60, 0.5) 12%);
+  background: linear-gradient(
+    to top,
+    rgba(220, 20, 60, 0.7) 12%,
+    rgba(220, 20, 60, 0.5) 12%
+  );
 }
 
 .before {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 
-    font-size: 1.2rem !important;
-    width: fit-content;
+  font-size: 1.2rem !important;
+  width: fit-content;
 
-    position: absolute;
+  position: absolute;
 
-    letter-spacing: normal !important;
-    color: white;
+  letter-spacing: normal !important;
+  color: white;
 }
 
 .after {
-    position: absolute;
+  position: absolute;
 
-    top: -2.5rem;
-    left: 0;
-    color: white;
+  top: -2.5rem;
+  left: 0;
+  color: white;
 
-    font-size: 1rem !important;
+  font-size: 1rem !important;
 }
 
-#results>.big_header,
+#results > .big_header,
 #match1,
 #match2,
 #match3,
 #match4,
 #match5 {
-    animation: shrink 100ms forwards;
+  animation: shrink 100ms forwards;
 }
 
 #match6 {
-    position: absolute;
-    top: 21.75vh;
-    left: 5vw;
+  position: absolute;
+  top: 21.75vh;
+  left: 5vw;
 
-    opacity: 0;
+  opacity: 0;
 
-    animation: appear_first 5s forwards;
-    animation-delay: 20500ms;
+  animation: appear_first 5s forwards;
+  animation-delay: 20500ms;
 }
 
 @keyframes appear_first {
-    0% {
-        opacity: 0;
-        transform: scaleX(1);
-    }
+  0% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
 
-    20% {
-        opacity: 1;
-    }
+  20% {
+    opacity: 1;
+  }
 
-    95% {
-        transform: scaleX(1);
-    }
+  95% {
+    transform: scaleX(1);
+  }
 
-    100% {
-        opacity: 1;
-        transform: scaleX(0);
-    }
+  100% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
 }
 
 :root {
-    --results-delay: 20s;
+  --results-delay: 20s;
 }
 
-#results>.big_header {
-    /* animation-delay: 25000ms; */
-    animation-delay: 20s;
+#results > .big_header {
+  /* animation-delay: 25000ms; */
+  animation-delay: 20s;
 }
 
 #match1 {
-    animation-delay: calc(var(--results-delay) + var(--delay));
+  animation-delay: calc(var(--results-delay) + var(--delay));
 }
 
 #match2 {
-    animation-delay: calc(var(--results-delay) + var(--delay) * 2);
+  animation-delay: calc(var(--results-delay) + var(--delay) * 2);
 }
 
 #match3 {
-    animation-delay: calc(var(--results-delay) + var(--delay) * 3);
+  animation-delay: calc(var(--results-delay) + var(--delay) * 3);
 }
 
 #match4 {
-    animation-delay: calc(var(--results-delay) + var(--delay) * 4);
+  animation-delay: calc(var(--results-delay) + var(--delay) * 4);
 }
 
 #match5 {
-    animation-delay: calc(var(--results-delay) + var(--delay) * 5);
+  animation-delay: calc(var(--results-delay) + var(--delay) * 5);
 }
 
 @keyframes shrink {
-    0% {
-        transform: scaleX(1)
-    }
+  0% {
+    transform: scaleX(1);
+  }
 
-    100% {
-        transform: scaleX(0);
-    }
+  100% {
+    transform: scaleX(0);
+  }
 }

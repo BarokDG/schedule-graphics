@@ -1,246 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Schedule</title>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Archivo+Black&family=Montserrat:wght@700&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Archivo+Black&family=Montserrat:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="play-action">
+      <div class="cta-wrapper">
+        <h1 class="cta-header">Click play to get started</h1>
+        <button class="cta">Play</button>
+      </div>
+    </div>
+    <div class="play-again">
+      <div class="cta-wrapper">
+        <h1 class="cta-header">Play again?</h1>
+        <button class="cta" onclick="window.location.reload()">Restart</button>
+      </div>
+    </div>
+
     <audio controls src="assets/music/background-music.m4a"></audio>
 
     <div class="intro">
-        <p>Department League</p>
+      <p>Department League</p>
     </div>
 
     <div class="intro" id="outro">
-        <p>Department League</p>
+      <p>Department League</p>
     </div>
 
     <div id="main">
-        <video autoplay loop muted src="./assets/video/glitch squares.mp4"></video>
+      <video
+        autoplay
+        loop
+        muted
+        src="./assets/video/glitch squares.mp4"
+      ></video>
 
-        <div class="horizontalTextAnimation" id="forward">
-            <p class="top">gameweek two <span>gameweek two </span>gameweek two <span>gameweek two </span></p>
-            <p class="bottom">gameweek two <span>gameweek two </span>gameweek two <span>gameweek two </span></p>
+      <div class="horizontalTextAnimation" id="forward">
+        <p class="top">
+          gameweek two <span>gameweek two </span>gameweek two
+          <span>gameweek two </span>
+        </p>
+        <p class="bottom">
+          gameweek two <span>gameweek two </span>gameweek two
+          <span>gameweek two </span>
+        </p>
+      </div>
+
+      <div class="table">
+        <div class="header">
+          <div></div>
+          <p>Form</p>
+          <p>p</p>
+          <p>w</p>
+          <p>d</p>
+          <p>l</p>
+          <p>GF</p>
+          <p>GA</p>
+          <p>GD</p>
+          <p>pts</p>
+        </div>
+        <div class="teams" id="Mech">
+          <p class="team_name" id="Mechanical">Mechanical</p>
+          <p class="form">
+            <i class="fas fa-minus-circle"></i
+            ><i class="fas fa-check-circle"></i
+            ><i class="fas fa-check-circle"></i>
+          </p>
+          <p class="played">3</p>
+          <p class="won">2</p>
+          <p class="drawn">1</p>
+          <p class="lost">0</p>
+          <p class="goals_for">9</p>
+          <p class="goals_against">3</p>
+          <p class="goal_difference">6</p>
+          <p class="total_points">7</p>
         </div>
 
-        <div class="table">
-            <div class="header">
-                <div></div>
-                <p>Form</p>
-                <p>p</p>
-                <p>w</p>
-                <p>d</p>
-                <p>l</p>
-                <p>GF</p>
-                <p>GA</p>
-                <p>GD</p>
-                <p>pts</p>
-            </div>
-            <div class="teams" id="Mech">
-                <p class="team_name" id="Mechanical">Mechanical</p>
-                <p class="form"><i class="fas fa-minus-circle"></i><i class="fas fa-check-circle"></i><i class="fas fa-check-circle"></i></p>
-                <p class="played">3</p>
-                <p class="won">2</p>
-                <p class="drawn">1</p>
-                <p class="lost">0</p>
-                <p class="goals_for">9</p>
-                <p class="goals_against">3</p>
-                <p class="goal_difference">6</p>
-                <p class="total_points">7</p>
-            </div>
+        <section id="playoffs">
+          <div class="teams" id="Info">
+            <p class="team_name" id="IT">IT</p>
+            <p class="form">
+              <i class="fas fa-check-circle"></i
+              ><i class="fas fa-check-circle"></i>
+            </p>
+            <p class="played">2</p>
+            <p class="won">2</p>
+            <p class="drawn">0</p>
+            <p class="lost">0</p>
+            <p class="goals_for">13</p>
+            <p class="goals_against">3</p>
+            <p class="goal_difference">10</p>
+            <p class="total_points">6</p>
+          </div>
+          <div class="teams" id="Bio">
+            <p class="team_name" id="Biomed">Biomed</p>
+            <p class="form">
+              <i class="fas fa-check-circle"></i
+              ><i class="fas fa-check-circle"></i>
+            </p>
+            <p class="played">2</p>
+            <p class="won">2</p>
+            <p class="drawn">0</p>
+            <p class="lost">0</p>
+            <p class="goals_for">11</p>
+            <p class="goals_against">2</p>
+            <p class="goal_difference">9</p>
+            <p class="total_points">6</p>
+          </div>
+          <div class="teams" id="Chem">
+            <p class="team_name" id="Chemical">Chemical</p>
+            <p class="form">
+              <i class="fas fa-check-circle"></i
+              ><i class="fas fa-times-circle"></i
+              ><i class="fas fa-check-circle"></i>
+            </p>
+            <p class="played">3</p>
+            <p class="won">2</p>
+            <p class="drawn">0</p>
+            <p class="lost">1</p>
+            <p class="goals_for">11</p>
+            <p class="goals_against">11</p>
+            <p class="goal_difference">0</p>
+            <p class="total_points">6</p>
+          </div>
+          <div class="teams" id="ElecC">
+            <p class="team_name" id="Electrical_C">Electrical C</p>
+            <p class="form">
+              <i class="fas fa-minus-circle"></i
+              ><i class="fas fa-check-circle"></i>
+            </p>
+            <p class="played">2</p>
+            <p class="won">1</p>
+            <p class="drawn">1</p>
+            <p class="lost">0</p>
+            <p class="goals_for">5</p>
+            <p class="goals_against">2</p>
+            <p class="goal_difference">3</p>
+            <p class="total_points">4</p>
+          </div>
+        </section>
 
-
-            <section id="playoffs">
-                <div class="teams" id="Info">
-                    <p class="team_name" id="IT">IT</p>
-                    <p class="form"><i class="fas fa-check-circle"></i><i class="fas fa-check-circle"></i></p>
-                    <p class="played">2</p>
-                    <p class="won">2</p>
-                    <p class="drawn">0</p>
-                    <p class="lost">0</p>
-                    <p class="goals_for">13</p>
-                    <p class="goals_against">3</p>
-                    <p class="goal_difference">10</p>
-                    <p class="total_points">6</p>
-                </div>
-                <div class="teams" id="Bio">
-                    <p class="team_name" id="Biomed">Biomed</p>
-                    <p class="form"><i class="fas fa-check-circle"></i><i class="fas fa-check-circle"></i></p>
-                    <p class="played">2</p>
-                    <p class="won">2</p>
-                    <p class="drawn">0</p>
-                    <p class="lost">0</p>
-                    <p class="goals_for">11</p>
-                    <p class="goals_against">2</p>
-                    <p class="goal_difference">9</p>
-                    <p class="total_points">6</p>
-                </div>
-                <div class="teams" id="Chem">
-                    <p class="team_name" id="Chemical">Chemical</p>
-                    <p class="form"><i class="fas fa-check-circle"></i><i class="fas fa-times-circle"></i><i class="fas fa-check-circle"></i></p>
-                    <p class="played">3</p>
-                    <p class="won">2</p>
-                    <p class="drawn">0</p>
-                    <p class="lost">1</p>
-                    <p class="goals_for">11</p>
-                    <p class="goals_against">11</p>
-                    <p class="goal_difference">0</p>
-                    <p class="total_points">6</p>
-                </div>
-                <div class="teams" id="ElecC">
-                    <p class="team_name" id="Electrical_C">Electrical C</p>
-                    <p class="form"><i class="fas fa-minus-circle"></i><i class="fas fa-check-circle"></i></p>
-                    <p class="played">2</p>
-                    <p class="won">1</p>
-                    <p class="drawn">1</p>
-                    <p class="lost">0</p>
-                    <p class="goals_for">5</p>
-                    <p class="goals_against">2</p>
-                    <p class="goal_difference">3</p>
-                    <p class="total_points">4</p>
-                </div>
-            </section>
-
-
-            <div class="teams" id="soft">
-                <p class="team_name" id="Software">Software</p>
-                <p class="form"><i class="fas fa-times-circle"></i><i class="fas fa-check-circle"></i></p>
-                <p class="played">2</p>
-                <p class="won">1</p>
-                <p class="drawn">0</p>
-                <p class="lost">1</p>
-                <p class="goals_for">11</p>
-                <p class="goals_against">4</p>
-                <p class="goal_difference">7</p>
-                <p class="total_points">3</p>
-            </div>
-            <div class="teams" id="ElecA">
-                <p class="team_name" id="Electrical_A">Electrical A</p>
-                <p class="form"><i class="fas fa-times-circle"></i><i class="fas fa-times-circle"></i></p>
-                <p class="played">2</p>
-                <p class="won">0</p>
-                <p class="drawn">0</p>
-                <p class="lost">2</p>
-                <p class="goals_for">3</p>
-                <p class="goals_against">7</p>
-                <p class="goal_difference">-4</p>
-                <p class="total_points">0</p>
-            </div>
-            <div class="teams" id="Civ">
-                <p class="team_name" id="Civil">Civil</p>
-                <p class="form"><i class="fas fa-times-circle"></i><i class="fas fa-times-circle"></i></p>
-                <p class="played">2</p>
-                <p class="won">0</p>
-                <p class="drawn">0</p>
-                <p class="lost">2</p>
-                <p class="goals_for">2</p>
-                <p class="goals_against">11</p>
-                <p class="goal_difference">-9</p>
-                <p class="total_points">0</p>
-            </div>
-            <div class="teams" id="ElecB2">
-                <p class="team_name" id="Electrical_B2">Electrical B2</p>
-                <p class="form"><i class="fas fa-times-circle"></i><i class="fas fa-times-circle"></i></p>
-                <p class="played">2</p>
-                <p class="won">0</p>
-                <p class="drawn">0</p>
-                <p class="lost">2</p>
-                <p class="goals_for">1</p>
-                <p class="goals_against">10</p>
-                <p class="goal_difference">-9</p>
-                <p class="total_points">0</p>
-            </div>
-            <div class="teams" id="ElecB1">
-                <p class="team_name" id="Electrical_B1">Electrical B1</p>
-                <p class="form"><i class="fas fa-times-circle"></i><i class="fas fa-times-circle"></i></p>
-                <p class="played">2</p>
-                <p class="won">0</p>
-                <p class="drawn">0</p>
-                <p class="lost">2</p>
-                <p class="goals_for">3</p>
-                <p class="goals_against">16</p>
-                <p class="goal_difference">-13</p>
-                <p class="total_points">0</p>
-            </div>
+        <div class="teams" id="soft">
+          <p class="team_name" id="Software">Software</p>
+          <p class="form">
+            <i class="fas fa-times-circle"></i
+            ><i class="fas fa-check-circle"></i>
+          </p>
+          <p class="played">2</p>
+          <p class="won">1</p>
+          <p class="drawn">0</p>
+          <p class="lost">1</p>
+          <p class="goals_for">11</p>
+          <p class="goals_against">4</p>
+          <p class="goal_difference">7</p>
+          <p class="total_points">3</p>
         </div>
-
-        <div class="horizontalTextAnimation" id="reverse">
-            <p class="top">gameweek two <span>gameweek two </span>gameweek two <span>gameweek two </span></p>
-            <p class="bottom">gameweek two <span>gameweek two </span>gameweek two <span>gameweek two </span></p>
+        <div class="teams" id="ElecA">
+          <p class="team_name" id="Electrical_A">Electrical A</p>
+          <p class="form">
+            <i class="fas fa-times-circle"></i
+            ><i class="fas fa-times-circle"></i>
+          </p>
+          <p class="played">2</p>
+          <p class="won">0</p>
+          <p class="drawn">0</p>
+          <p class="lost">2</p>
+          <p class="goals_for">3</p>
+          <p class="goals_against">7</p>
+          <p class="goal_difference">-4</p>
+          <p class="total_points">0</p>
         </div>
+        <div class="teams" id="Civ">
+          <p class="team_name" id="Civil">Civil</p>
+          <p class="form">
+            <i class="fas fa-times-circle"></i
+            ><i class="fas fa-times-circle"></i>
+          </p>
+          <p class="played">2</p>
+          <p class="won">0</p>
+          <p class="drawn">0</p>
+          <p class="lost">2</p>
+          <p class="goals_for">2</p>
+          <p class="goals_against">11</p>
+          <p class="goal_difference">-9</p>
+          <p class="total_points">0</p>
+        </div>
+        <div class="teams" id="ElecB2">
+          <p class="team_name" id="Electrical_B2">Electrical B2</p>
+          <p class="form">
+            <i class="fas fa-times-circle"></i
+            ><i class="fas fa-times-circle"></i>
+          </p>
+          <p class="played">2</p>
+          <p class="won">0</p>
+          <p class="drawn">0</p>
+          <p class="lost">2</p>
+          <p class="goals_for">1</p>
+          <p class="goals_against">10</p>
+          <p class="goal_difference">-9</p>
+          <p class="total_points">0</p>
+        </div>
+        <div class="teams" id="ElecB1">
+          <p class="team_name" id="Electrical_B1">Electrical B1</p>
+          <p class="form">
+            <i class="fas fa-times-circle"></i
+            ><i class="fas fa-times-circle"></i>
+          </p>
+          <p class="played">2</p>
+          <p class="won">0</p>
+          <p class="drawn">0</p>
+          <p class="lost">2</p>
+          <p class="goals_for">3</p>
+          <p class="goals_against">16</p>
+          <p class="goal_difference">-13</p>
+          <p class="total_points">0</p>
+        </div>
+      </div>
 
-        <div id="results">
-            <p class="big_header">Results</p>
-            <div class="main-main">
-                <div id="match1">
-                    <p class="after">Monday April 19th</p>
-                    <div>Chemical</div>
-                    <p class="before">2-8</p>
-                    <div>IT</div>
-                </div>
-                <div id="match2">
-                    <p class="after">Wednesday April 21st</p>
-                    <div>Electrical B2</div>
-                    <p class="before">1-4</p>
-                    <div>Electrical C</div>
-                </div>
-                <div id="match3">
-                    <p class="after">Thursday April 22nd</p>
-                    <div>Electrical B1</div>
-                    <p class="before">2-6</p>
-                    <div>Chemical</div>
-                </div>
-                <div id="match4">
-                    <p class="after">Thursday April 22nd</p>
-                    <div>Biomed</div>
-                    <p class="before">5-2</p>
-                    <div>Electrical A</div>
-                </div>
-                <div id="match5">
-                    <p class="after">Friday April 23rd</p>
-                    <div>Civil</div>
-                    <p class="before">1-6</p>
-                    <div>Mechanical</div>
-                </div>
+      <div class="horizontalTextAnimation" id="reverse">
+        <p class="top">
+          gameweek two <span>gameweek two </span>gameweek two
+          <span>gameweek two </span>
+        </p>
+        <p class="bottom">
+          gameweek two <span>gameweek two </span>gameweek two
+          <span>gameweek two </span>
+        </p>
+      </div>
 
-                <!-- <div id="match6">
+      <div id="results">
+        <p class="big_header">Results</p>
+        <div class="main-main">
+          <div id="match1">
+            <p class="after">Monday April 19th</p>
+            <div>Chemical</div>
+            <p class="before">2-8</p>
+            <div>IT</div>
+          </div>
+          <div id="match2">
+            <p class="after">Wednesday April 21st</p>
+            <div>Electrical B2</div>
+            <p class="before">1-4</p>
+            <div>Electrical C</div>
+          </div>
+          <div id="match3">
+            <p class="after">Thursday April 22nd</p>
+            <div>Electrical B1</div>
+            <p class="before">2-6</p>
+            <div>Chemical</div>
+          </div>
+          <div id="match4">
+            <p class="after">Thursday April 22nd</p>
+            <div>Biomed</div>
+            <p class="before">5-2</p>
+            <div>Electrical A</div>
+          </div>
+          <div id="match5">
+            <p class="after">Friday April 23rd</p>
+            <div>Civil</div>
+            <p class="before">1-6</p>
+            <div>Mechanical</div>
+          </div>
+
+          <!-- <div id="match6">
                     <p class="after">Friday April 16th</p>
                     <div>Electrical A</div>
                     <p class="before">1-2</p>
                     <div>Mechanical</div>
                 </div> -->
-            </div>
         </div>
-        <div id="fixtures">
-            <p class="big_header">Fixtures</p>
-            <div class="main-main">
-                <div id="upcoming_match1">
-                    <p class="after">Tuesday April 27th</p>
-                    <div>Civil</div>
-                    <p class="before">10LT</p>
-                    <div>Elec A</div>
-                </div>
-                <div id="upcoming_match2">
-                    <p class="after">Wednesday April 28th</p>
-                    <div>Electrical C</div>
-                    <p class="before">10LT</p>
-                    <div>IT</div>
-                </div>
-                <!-- <div id="upcoming_match3">
+      </div>
+      <div id="fixtures">
+        <p class="big_header">Fixtures</p>
+        <div class="main-main">
+          <div id="upcoming_match1">
+            <p class="after">Tuesday April 27th</p>
+            <div>Civil</div>
+            <p class="before">10LT</p>
+            <div>Elec A</div>
+          </div>
+          <div id="upcoming_match2">
+            <p class="after">Wednesday April 28th</p>
+            <div>Electrical C</div>
+            <p class="before">10LT</p>
+            <div>IT</div>
+          </div>
+          <!-- <div id="upcoming_match3">
                     <p class="after">Thursday April 22nd</p>
                     <div>Biomed</div>
                     <p class="before">10LT</p>
@@ -252,28 +316,65 @@
                     <p class="before">10LT</p>
                     <div>Mechanical</div>
                 </div> -->
-                <br>
-                <p>*schedules subject to change</p>
-            </div>
+          <br />
+          <p>*schedules subject to change</p>
         </div>
+      </div>
+    </div>
 
-        <script>
-            var output = 'gameweek three <span>gameweek three </span>gameweek three <span>gameweek three </span>';
+    <script>
+      var output =
+        "gameweek three <span>gameweek three </span>gameweek three <span>gameweek three </span>";
 
-            var forward_top = document.querySelector('#forward .top');
-            var forward_bottom = document.querySelector('#forward .bottom');
-            
-            var reverse_top = document.querySelector('#reverse .top');
-            var reverse_bottom = document.querySelector('#reverse .bottom');
+      var forward_top = document.querySelector("#forward .top");
+      var forward_bottom = document.querySelector("#forward .bottom");
 
-            setTimeout(function() {
-                forward_top.innerHTML = output;
-                forward_bottom.innerHTML = output;
+      var reverse_top = document.querySelector("#reverse .top");
+      var reverse_bottom = document.querySelector("#reverse .bottom");
 
-                reverse_top.innerHTML = output;
-                reverse_bottom.innerHTML = output;
-            }, 22300)
-        </script>
-</body>
+      setTimeout(function () {
+        forward_top.innerHTML = output;
+        forward_bottom.innerHTML = output;
 
+        reverse_top.innerHTML = output;
+        reverse_bottom.innerHTML = output;
+      }, 22300);
+    </script>
+    <script>
+      "use strict";
+      const startButton = document.querySelector(".play-action .cta");
+      const body = document.querySelector("body");
+      const playSection = document.querySelector(".play-action");
+      const restartSection = document.querySelector(".play-again");
+
+      const audio = document.querySelector("audio");
+
+      startButton.addEventListener("click", handleButtonClick);
+
+      function handleButtonClick() {
+        playSection.classList.add("transition-out");
+        body.style.setProperty("--play-state", "running");
+
+        const timerId = setTimeout(() => {
+          audio.play();
+          trackAudioPlay();
+          clearTimeout(timerId);
+        }, 3000);
+      }
+
+      function trackAudioPlay() {
+        let timerId = setInterval(() => {
+          if (audio.currentTime >= 35) {
+            audio.pause();
+            unhideRestartButton();
+            clearInterval(timerId);
+          }
+        }, 5000);
+      }
+
+      function unhideRestartButton() {
+        restartSection.classList.add("transition-in");
+      }
+    </script>
+  </body>
 </html>
